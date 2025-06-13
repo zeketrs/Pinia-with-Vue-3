@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 export const useTaskStore = defineStore('taskStore', {
   state: () => ({
     tasks: [
-      {id: 1, title: "buy some milk", isFav: false},
-      {id: 2, title: "play Gloomhaven", isFav: true}
+      {id: 1, title: "buy some milk", completed:true, isFav: false},
+      {id: 2, title: "play Gloomhaven", completed:false, isFav: true}
     ]
   }),
   getters: {
@@ -28,10 +28,20 @@ export const useTaskStore = defineStore('taskStore', {
       this.tasks = this.tasks.filter(t => {
         return t.id !== id
       })
+    }, // added functionality for users to enable and disable completed status//
+       // users may then remove all completed items at their leisure//
+    deleteCompleted(){
+      this.tasks = this.tasks.filter(t => {
+        return t.completed !== true
+      })
     },
     toggleFav(id) {
       const task = this.tasks.find(t => t.id === id)
       task.isFav = !task.isFav
+    },
+    toggleCompleted(id) {
+      const task = this.tasks.find(t => t.id === id)
+      task.completed = !task.completed
     }
   }
 })

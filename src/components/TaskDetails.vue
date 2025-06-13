@@ -13,6 +13,13 @@
         @click="taskStore.toggleFav(task.id)">
         favorite
       </i>
+      <!-- researched and implemented new icon-->
+      <i
+        class="material-icons"
+        :class="{completed: task.completed}"
+        @click="taskStore.toggleCompleted(task.id)">
+      check_circle
+      </i>
     </div>
   </div>
 </template>

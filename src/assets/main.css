@@ -60,6 +60,9 @@ header h1 {
 }
 .task i.active {
   color: #ff005d;
+} /* targets the new icon to make it distinct */
+.task i.completed {
+  color: greenyellow
 }
 
 /* filter nav */

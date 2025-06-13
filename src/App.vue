@@ -13,9 +13,11 @@
     </div>
 
     <!-- filter -->
+     <!-- added the remove completed button-->
     <nav class="filter">
       <button @click="filter = 'all'">All tasks</button>
       <button @click="filter = 'favs'">Fav tasks</button>
+      <button @click="taskStore.deleteCompleted">Remove Completed</button>
     </nav>
 
     <!-- task list -->
@@ -31,6 +33,7 @@
         <TaskDetails :task="task" />
       </div>
     </div>
+    
 
   </main>
 </template>
